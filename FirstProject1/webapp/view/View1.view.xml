@@ -1,0 +1,19 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="kagool.ewm.firstprojectFirstProject.controller.View1"
+				xmlns:f="sap.ui.layout.form"
+				xmlns:html="http://www.w3.org/1999/xhtml">
+			<Page title="{i18n>title}">
+				<content>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<f:content>
+							<Label text="{i18n>transactName}"></Label>
+							<Input id="idTcode" value="" width="8em"></Input>
+							<Label text="{i18n>transactvariant}"></Label>
+							<Input id="idVariant" value="" width="8em"></Input>
+							<Label />
+							<Button id="idButtonTcode" press="onButtonPress" width="8em" text="Go"/>
+						</f:content>
+					</f:SimpleForm>
+				</content>
+			</Page>
+</mvc:View>

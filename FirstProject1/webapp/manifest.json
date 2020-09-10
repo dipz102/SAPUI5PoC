@@ -1,0 +1,125 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "kagool.ewm.firstprojectFirstProject",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"VEL_TCODE_GET_METADATA_SRV": {
+				"uri": "/sap/opu/odata/kdp/VEL_TCODE_GET_METADATA_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "kagool.ewm.firstprojectFirstProject.view.App",
+			"type": "XML"
+		},
+		"routing" :{
+			"config" : {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "kagool.ewm.firstprojectFirstProject.view",
+				"controlId": "idApp"
+			},
+			"routes": [
+				{
+				"name": "View1Page",
+				"pattern": "",
+				"target": "showView1"
+				},
+				{
+				"name": "DetailPage",
+				"pattern": "Deatil/{tcode}",
+				"target": ["Detail"]
+				}
+			],
+			"targets": {
+				"showView1": {
+					"viewName": "View1",
+					"viewType": "XML",
+					"controlAggregation": "pages",
+					"viewLevel": 1
+				},
+				"Detail": {
+					"viewName": "Detail",
+					"viewType": "XML",
+					"controlAggregation": "pages",
+					"viewLevel": 2
+				}
+				
+			}
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "kagool.ewm.firstprojectFirstProject.i18n.i18n"
+				},
+				"uri": "i18n/properties"
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "VEL_TCODE_GET_METADATA_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		}
+	}
+}

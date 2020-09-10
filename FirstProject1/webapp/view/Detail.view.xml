@@ -1,0 +1,51 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="kagool.ewm.firstprojectFirstProject.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:f="sap.ui.layout.form">
+			<Page title="Details">
+				<content>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout">
+						<f:content>
+							<Label text="Tranasction"/>
+							<Text id="idTcodeText"/>
+						</f:content>
+					</f:SimpleForm>
+					<!--<List id="List" items="{path: '/inputdataSet', parameters: {expand: 'MDATA'}}">-->
+					<!--<List id="List" items="{MDATA>/results}">-->
+					<!--	<StandardListItem title ="{/Fieldname}">-->
+							
+					<!--	</StandardListItem>-->
+					<!--</List>-->
+					<Table id="idTab" items="{MDATA>/results}">
+						<columns>
+							<Column>
+								<Text text="Field Name"/>
+							</Column>
+							<Column>
+								<Text text="Field Description"/>
+							</Column>
+							<Column>
+								<Text text="Data Type"/>
+							</Column>
+							<Column>
+								<Text text="Field Length"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{MDATA>Fieldname}" />
+									<Text text="{MDATA>Desc}" />
+									<Text text="{MDATA>Length}" />
+									<Text text="{MDATA>Datatype}" />
+								</cells>
+							</ColumnListItem>
+						</items>
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Field table" level="H4"/>
+							</Toolbar>
+						</headerToolbar>
+					</Table>
+				</content>
+			</Page>
+</mvc:View>
